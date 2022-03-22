@@ -21,12 +21,24 @@ class Student:
             return 'Ошибка'
     
     #подсчёт средней оценки для студента
-    def mid_grade(self): 
+    def mid_grade1(self): 
         new = []
         for i in self.grades.values():
             new.append(sum(i) / len(i))
         mid_grades = round(sum(new) / len(new), 1)
         return mid_grades
+    
+    # средний бал
+    def mid_grade(self):
+        new = []
+        if len(self.grades.values()) < 1:
+            return f'{self.name} {self.surname} has no ratings.'
+        else:
+            for i in self.grades.values():
+                new += i
+            mid_grades = round(sum(new) / len(new), 1)
+            return mid_grades
+    
     # список студентов         
     def add_in_lis(self):
         lis_student = []
@@ -36,8 +48,8 @@ class Student:
             return 'invalid class'
             
     # выводим информацию про студента
-    def __str__(self, name, surname, grades):
-          return(f'Имя: {self.name} \n Фамилия: {self.surname} \n Средняя оценка за домашние работы: {self.mid_grade} \n Курсы в процессе изучения: {self.courses_in_progress} \n Завершенные курсы: {self.finished_courses}')
+    def __str__(self):
+          return(f'Имя: {self.name} \n Фамилия: {self.surname} \n Средняя оценка за домашние работы: {self.mid_grade()} \n Курсы в процессе изучения: {self.courses_in_progress} \n Завершенные курсы: {self.finished_courses}')
        
 
 
@@ -57,12 +69,15 @@ class Lecturer(Mentor):
         self.grades = {}
     
     # средняя оценка лектора
-    def mid_grade(self): 
+    def mid_grade(self):
         new = []
-        for i in self.grades.values():
-            new.append(sum(i) / len(i))
-        mid_grades = round(sum(new) / len(new), 1)
-        return mid_grades      
+        if len(self.grades.values()) < 1:
+            return f'{self.name} {self.surname} has no ratings.'
+        else:
+            for i in self.grades.values():
+                new += i
+            mid_grades = round(sum(new) / len(new), 1)
+            return mid_grades      
     
     # список лекторов
     def add_in_lis(self):
@@ -108,6 +123,7 @@ def perform_comparison(person1, person2):
 student_1 = Student('Ivan', 'Petrov', 'M')
 student_1.courses_in_progress = ['Python', 'SQL']
 student_1.finished_courses = ['Pascal', 'Basic']
+print(student_1)
 
 student_2 = Student('Vasili', 'Nikolaev', 'M')
 student_2.courses_in_progress = ['Python', 'SQL']
@@ -143,7 +159,7 @@ print('lecturer_2 after rating:', lecturer_2.grades)
 
 print(student_1.mid_grade())
 print(lecturer_1.mid_grade())
-print(student_1)
+
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
  
