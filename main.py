@@ -143,6 +143,7 @@ print('lecturer_2 after rating:', lecturer_2.grades)
 
 print(student_1.mid_grade())
 print(lecturer_1.mid_grade())
+print(student_1)
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
  
