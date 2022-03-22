@@ -109,9 +109,7 @@ def perform_comparison(person1, person2):
             return f'Успеваемость студента {person2.name} лучше. Средний бал {person2.mid_grade()}'
     else:
         return 'Ошибка'
-# вопросы по доработке: 
-# Как сделать сравнение успевамости, если студентов больше чем двое? Тоже самое про лекторов. 
-# Прописать вызов всех функций    
+    
 student_1 = Student('Ivan', 'Petrov', 'M')
 student_1.courses_in_progress = ['Python', 'SQL']
 student_1.finished_courses = ['Pascal', 'Basic']
