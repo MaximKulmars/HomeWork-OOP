@@ -20,14 +20,6 @@ class Student:
         else:
             return 'Ошибка'
     
-    #подсчёт средней оценки для студента
-    def mid_grade1(self): 
-        new = []
-        for i in self.grades.values():
-            new.append(sum(i) / len(i))
-        mid_grades = round(sum(new) / len(new), 1)
-        return mid_grades
-    
     # средний бал
     def mid_grade(self):
         new = []
@@ -87,7 +79,7 @@ class Lecturer(Mentor):
         else:
             return 'invalid class'
     def __str__(self):
-        return(f'Имя: {self.name} \n Фамилия {self.surname} \n Средняя оценка за лекции: {self.mid_grade}')    
+        return(f'Имя: {self.name} \n Фамилия {self.surname} \n Средняя оценка за лекции: {self.mid_grade()}')    
         
 class Reviewer(Mentor):
     def __init__(self, name, surname, courses_attached):
