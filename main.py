@@ -97,8 +97,8 @@ class Reviewer(Mentor):
             return 'Ошибка'
     
     # вывод информации о проверяющем
-    def __str__(self, name, surname):
-      return(f'Имя: {name} \n Фамилия: {surname} \n ')
+    def __str__(self):
+      return(f'Имя: {self.name} \nФамилия: {self.surname} \n ')
 
 # сравниваем успеваемость студентов
 def perform_comparison(person1, person2): 
@@ -156,7 +156,18 @@ print('lecturer_2 after rating:', lecturer_2.grades)
 
 print(student_1.mid_grade())
 print(lecturer_1.mid_grade())
+
+print('Студенты:')
 print(student_1)
+print(student_2)
+
+print('Лекторы:')
+print(lecturer_1)
+print(lecturer_2)
+
+print('Проверяющие')
+print(reviewer_1)
+print(reviewer_2)
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
  
