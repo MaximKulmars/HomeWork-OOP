@@ -109,25 +109,32 @@ def perform_comparison(person1, person2):
             return f'Успеваемость студента {person2.name} лучше. Средний бал {person2.mid_grade()}'
     else:
         return 'Ошибка'
-    
+
+
 student_1 = Student('Ivan', 'Petrov', 'M')
 student_1.courses_in_progress = ['Python', 'SQL']
 student_1.finished_courses = ['Pascal', 'Basic']
-print(student_1)
+
+
 
 student_2 = Student('Vasili', 'Nikolaev', 'M')
 student_2.courses_in_progress = ['Python', 'SQL']
 student_2.finished_courses = ['Pascal', 'Basic']
 
+
 student_3 = Student('Alexandr', 'Sidorov', 'M')
 student_3.courses_in_progress = ['Python', 'SQL']
 student_3.finished_courses = ['Pascal', 'Basic']
+
 
 lecturer_1 = Lecturer('Nikolai', 'Bragin', ['Python', 'Basic'])
 lecturer_2 = Lecturer('Olga', 'Krupskaya', ['Python', 'SQL'])
 
 reviewer_2 = Reviewer('Voroshilov', 'Stepan', ['SQL', 'Basic'])
 reviewer_1 = Reviewer('Svetlana', 'Makarova', ['Python', 'Basic',])
+
+
+
 print('student_1 before rating:', student_1.grades)
 reviewer_1.rate_hw(student_1, 'Python', 3)
 reviewer_1.rate_hw(student_1, 'Python', 4)
@@ -149,7 +156,7 @@ print('lecturer_2 after rating:', lecturer_2.grades)
 
 print(student_1.mid_grade())
 print(lecturer_1.mid_grade())
-
+print(student_1)
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
  
