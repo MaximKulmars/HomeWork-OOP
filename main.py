@@ -174,6 +174,7 @@ print(reviewer_2)
 print(perform_comparison(student_1, student_2))
 print(perform_comparison_lecturer(lecturer_1, lecturer_2))
 
+#It finaly works!
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
  
