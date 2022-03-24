@@ -162,6 +162,7 @@ print('Проверяющие')
 print(reviewer_1)
 print(reviewer_2)
 
+print(perform_comparison(student_1, student_2))
 
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
