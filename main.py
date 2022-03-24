@@ -97,49 +97,56 @@ class Reviewer(Mentor):
             return 'Ошибка'
     
     # вывод информации о проверяющем
-    def __str__(self, name, surname):
-      return(f'Имя: {name} \n Фамилия: {surname} \n ')
+    def __str__(self):
+      return(f'Имя: {self.name} \nФамилия: {self.surname} \n ')
 
 # сравниваем успеваемость студентов
 def perform_comparison(person1, person2): 
-    if isinstance(person1, Student) and isinstance(person2, Student):
+    if (isinstance(person1, Student) and isinstance(person2, Student)) and (person1.mid_grade() > 0 and person2.mid_grade() > 0):
         if person1.mid_grade() > person2.mid_grade():
             return f'Успеваемость студента {person1.name} лучше. Средний бал {person1.mid_grade()}'
         else:
             return f'Успеваемость студента {person2.name} лучше. Средний бал {person2.mid_grade()}'
     else:
         return 'Ошибка'
-# вопросы по доработке: 
-# Как сделать сравнение успевамости, если студентов больше чем двое? Тоже самое про лекторов. 
-# Прописать вызов всех функций    
+# сравниваем оценку лекторов
+def perform_comparison_lecturer(man1, man2): 
+    if (isinstance(man1, Lecturer) and isinstance(man2, Lecturer)) and (man1.mid_grade() > 0 and man2.mid_grade() > 0):
+        if man1.mid_grade() > man2.mid_grade():
+            return f'Оценка лектора {man1.name} за лекции лучше. Средний бал {man1.mid_grade()}'
+        else:
+            return f'Оценка лектора  {man2.name} за лекции лучше. Средний бал {man2.mid_grade()}'
+    else:
+        return 'Ошибка'
+
+
 student_1 = Student('Ivan', 'Petrov', 'M')
 student_1.courses_in_progress = ['Python', 'SQL']
 student_1.finished_courses = ['Pascal', 'Basic']
-print(student_1)
+
+
 
 student_2 = Student('Vasili', 'Nikolaev', 'M')
 student_2.courses_in_progress = ['Python', 'SQL']
 student_2.finished_courses = ['Pascal', 'Basic']
 
+
 student_3 = Student('Alexandr', 'Sidorov', 'M')
 student_3.courses_in_progress = ['Python', 'SQL']
 student_3.finished_courses = ['Pascal', 'Basic']
+
 
 lecturer_1 = Lecturer('Nikolai', 'Bragin', ['Python', 'Basic'])
 lecturer_2 = Lecturer('Olga', 'Krupskaya', ['Python', 'SQL'])
 
 reviewer_2 = Reviewer('Voroshilov', 'Stepan', ['SQL', 'Basic'])
 reviewer_1 = Reviewer('Svetlana', 'Makarova', ['Python', 'Basic',])
-print('student_1 before rating:', student_1.grades)
+
 reviewer_1.rate_hw(student_1, 'Python', 3)
 reviewer_1.rate_hw(student_1, 'Python', 4)
 reviewer_2.rate_hw(student_1, 'SQL', 5)
 reviewer_2.rate_hw(student_3, 'SQL', 3)
-reviewer_2.rate_hw(student_2, 'Basic', 3)
-
-print('student_1 after rating:', student_1.grades)
-print('student_2 after rating:', student_2.grades)
-print('student_3 after rating:', student_3.grades)
+reviewer_2.rate_hw(student_2, 'SQL', 3)
 
 student_1.rate_lecturer(lecturer_1, 'Python', 4)
 student_1.rate_lecturer(lecturer_1, 'Python', 5)
@@ -152,6 +159,22 @@ print('lecturer_2 after rating:', lecturer_2.grades)
 print(student_1.mid_grade())
 print(lecturer_1.mid_grade())
 
+print('Студенты:')
+print(student_1)
+print(student_2)
+
+print('Лекторы:')
+print(lecturer_1)
+print(lecturer_2)
+
+print('Проверяющие')
+print(reviewer_1)
+print(reviewer_2)
+
+print(perform_comparison(student_1, student_2))
+print(perform_comparison_lecturer(lecturer_1, lecturer_2))
+
+#It finaly works!
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
  
@@ -162,3 +185,6 @@ print(lecturer_1.mid_grade())
 # # cool_reviewer.rate_hw(best_student, 'Python', 10)
 # # cool_reviewer.rate_hw(best_student, 'Python', 10)
 # # print(best_student.grades)
+# print('student_1 after rating:', student_1.grades)
+# print('student_2 after rating:', student_2.grades)
+# print('student_3 after rating:', student_3.grades)
