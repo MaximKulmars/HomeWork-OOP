@@ -102,11 +102,20 @@ class Reviewer(Mentor):
 
 # сравниваем успеваемость студентов
 def perform_comparison(person1, person2): 
-    if isinstance(person1, Student) and isinstance(person2, Student):
+    if (isinstance(person1, Student) and isinstance(person2, Student)) and (person1.mid_grade() > 0 and person2.mid_grade() > 0):
         if person1.mid_grade() > person2.mid_grade():
             return f'Успеваемость студента {person1.name} лучше. Средний бал {person1.mid_grade()}'
         else:
             return f'Успеваемость студента {person2.name} лучше. Средний бал {person2.mid_grade()}'
+    else:
+        return 'Ошибка'
+# сравниваем оценку лекторов
+def perform_comparison_lecturer(man1, man2): 
+    if (isinstance(man1, Lecturer) and isinstance(man2, Lecturer)) and (man1.mid_grade() > 0 and man2.mid_grade() > 0):
+        if man1.mid_grade() > man2.mid_grade():
+            return f'Оценка лектора {man1.name} за лекции лучше. Средний бал {man1.mid_grade()}'
+        else:
+            return f'Оценка лектора  {man2.name} за лекции лучше. Средний бал {man2.mid_grade()}'
     else:
         return 'Ошибка'
 
@@ -137,7 +146,7 @@ reviewer_1.rate_hw(student_1, 'Python', 3)
 reviewer_1.rate_hw(student_1, 'Python', 4)
 reviewer_2.rate_hw(student_1, 'SQL', 5)
 reviewer_2.rate_hw(student_3, 'SQL', 3)
-reviewer_2.rate_hw(student_2, 'Basic', 3)
+reviewer_2.rate_hw(student_2, 'SQL', 3)
 
 student_1.rate_lecturer(lecturer_1, 'Python', 4)
 student_1.rate_lecturer(lecturer_1, 'Python', 5)
@@ -163,6 +172,7 @@ print(reviewer_1)
 print(reviewer_2)
 
 print(perform_comparison(student_1, student_2))
+print(perform_comparison_lecturer(lecturer_1, lecturer_2))
 
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
