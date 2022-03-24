@@ -133,18 +133,11 @@ lecturer_2 = Lecturer('Olga', 'Krupskaya', ['Python', 'SQL'])
 reviewer_2 = Reviewer('Voroshilov', 'Stepan', ['SQL', 'Basic'])
 reviewer_1 = Reviewer('Svetlana', 'Makarova', ['Python', 'Basic',])
 
-
-
-print('student_1 before rating:', student_1.grades)
 reviewer_1.rate_hw(student_1, 'Python', 3)
 reviewer_1.rate_hw(student_1, 'Python', 4)
 reviewer_2.rate_hw(student_1, 'SQL', 5)
 reviewer_2.rate_hw(student_3, 'SQL', 3)
 reviewer_2.rate_hw(student_2, 'Basic', 3)
-
-print('student_1 after rating:', student_1.grades)
-print('student_2 after rating:', student_2.grades)
-print('student_3 after rating:', student_3.grades)
 
 student_1.rate_lecturer(lecturer_1, 'Python', 4)
 student_1.rate_lecturer(lecturer_1, 'Python', 5)
@@ -168,6 +161,8 @@ print(lecturer_2)
 print('Проверяющие')
 print(reviewer_1)
 print(reviewer_2)
+
+
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
  
@@ -178,3 +173,6 @@ print(reviewer_2)
 # # cool_reviewer.rate_hw(best_student, 'Python', 10)
 # # cool_reviewer.rate_hw(best_student, 'Python', 10)
 # # print(best_student.grades)
+# print('student_1 after rating:', student_1.grades)
+# print('student_2 after rating:', student_2.grades)
+# print('student_3 after rating:', student_3.grades)
